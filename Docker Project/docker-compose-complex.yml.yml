@@ -19,7 +19,7 @@ services:
     # API service
     api:
         build: ./server
-        image: "goliredd058/complex_api"
+        image: "akhya/complex_api"
         environment:
             - REDIS_HOST=redis_db
             - REDIS_PORT=6379
@@ -31,7 +31,7 @@ services:
     # Worker service
     worker:
         build: ./worker
-        image: "goliredd058/complex_worker"
+        image: "akhya/complex_worker"
         environment:
             - REDIS_HOST=redis_db
             - REDIS_PORT=6379
