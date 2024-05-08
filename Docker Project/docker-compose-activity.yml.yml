@@ -4,6 +4,6 @@ services:
       image: "redis"
     node_app:
       build: ./
-      image: "goliredd058/visits"
+      image: "akhya/visits"
       ports:
         - "8081:8081"
