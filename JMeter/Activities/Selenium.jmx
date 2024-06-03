@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - WebDriver Sampler">
+          <stringProp name="WebDriverSampler.script">// Import statements
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.*;
+
+// Captures sampler&apos;s start time
+WDS.sampleResult.sampleStart();
+WDS.log.info(&quot;Test started&quot;);
+
+// Load the page
+WDS.browser.get(&quot;https://www.training-support.net/selenium/login-form&quot;);
+WDS.log.info(&quot;Test page opened&quot;);
+
+// Credentials
+String[] username = {&quot;admin&quot;};
+String[] password = {&quot;password&quot;};
+
+// Find credential fields and enter values
+WDS.browser.findElement(By.id(&quot;username&quot;)).sendKeys(username);
+WDS.browser.findElement(By.id(&quot;password&quot;)).sendKeys(password);
+
+// Find Login button and click it
+WDS.browser.findElement(By.xpath(&quot;//button[text()=&apos;Log in&apos;]&quot;)).click();
+WDS.log.info(&quot;Logged in&quot;);
+
+// Find confirmation message and print it to log
+String message = WDS.browser.findElement(By.id(&quot;action-confirmation&quot;));
+WDS.log.info(&quot;Login message: &quot; + message.getText());
+
+// End the test sampler
+// Also captures sampler&apos;s end time
+WDS.sampleResult.sampleEnd();
+WDS.log.info(&quot;Test ended&quot;);</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">java</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
