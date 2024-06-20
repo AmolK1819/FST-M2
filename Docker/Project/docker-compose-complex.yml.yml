@@ -19,7 +19,7 @@ services:
     # API service
     api:
         build: ./server
-        image: "akhya/complex_api"
+        image: "amol/complex_api"
         environment:
             - REDIS_HOST=redis_db
             - REDIS_PORT=6379
