@@ -9,4 +9,4 @@ totalCount = FOREACH grpd GENERATE $0, COUNT($1);
 -- Remove the old results
 rmf hdfs:///user/sreeg/pigOutput1;
 -- Store the result in HDFS
-STORE totalCount INTO 'hdfs:///user/Akhya/pigOutput1';
+STORE totalCount INTO 'hdfs:///user/Amol/pigOutput1';
