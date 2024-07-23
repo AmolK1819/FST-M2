@@ -21,7 +21,7 @@ SELECT * FROM employee WHERE salary > 30000;
 SELECT count(*) FROM employee;
 
 -- Results exported to HDFS directory
-INSERT OVERWRITE DIRECTORY '/user/sreeg/HiveOutput'
+INSERT OVERWRITE DIRECTORY '/user/Amol/HiveOutput'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 SELECT * FROM employee;
 
