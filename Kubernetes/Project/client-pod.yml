@@ -7,7 +7,7 @@ metadata:
 spec:
     containers:
         - name: client
-          image: siritbreaker/complex_client
+          image: amol/complex_client
           ports:
               - containerPort: 3000
           resources:
