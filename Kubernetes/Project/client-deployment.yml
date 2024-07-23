@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: siritbreaker/complex_client
+          image: amol/complex_client
           resources:
             limits:
               memory: "128Mi"
