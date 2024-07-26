@@ -25,7 +25,7 @@ names = FOREACH grpByName GENERATE $0 as name, COUNT($1) as noOfLines;
 namesOrdered = ORDER names BY noOfLines DESC;
 
 -- Remove the old results
--- rmf hdfs:///user/sreeg/pigProjectOutput;
+-- rmf hdfs:///user/amol/pigProjectOutput;
 
 -- Store the result in HDFS
-STORE namesOrdered INTO 'hdfs:///user/sreeg/pigProjectOutput' USING PigStorage('\t');
+STORE namesOrdered INTO 'hdfs:///user/amol/pigProjectOutput' USING PigStorage('\t');
