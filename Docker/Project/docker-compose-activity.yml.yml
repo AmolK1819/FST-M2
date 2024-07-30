@@ -1,9 +1,0 @@
-version: '3'
-services:
-    redis_db:
-      image: "redis"
-    node_app:
-      build: ./
-      image: "amol/visits"
-      ports:
-        - "8081:8081"
